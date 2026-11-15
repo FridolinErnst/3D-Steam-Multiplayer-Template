@@ -46,8 +46,8 @@ It covers the game, the netcode stack (e.g. Netcode for GameObjects, FishNet or 
 without Steam. Decisions are written to `docs/adr/` and terms to `GLOSSARY.md` as you go. Nothing gets built
 until you confirm.
 
-After that, ask Claude to build it feature by feature. Each change follows AGENTS.md and ends with
-a checklist of what was set up in the Editor.
+After that, ask Claude to build it feature by feature. Each change follows AGENTS.md: Claude does the Unity Editor work itself (assets, wiring, Play mode checks)
+through the Unity CLI, runs only the tests for the code it changed, and ends with a summary of what it did.
 
 ## Folder layout
 

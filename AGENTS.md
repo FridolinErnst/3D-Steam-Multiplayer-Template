@@ -266,7 +266,7 @@ Assets/_Project/
 - Actions: verb phrase — `PlayHitSound`, `AddToScore`
 - Conditions: `Is`/`Has` — `IsHealthLow`, `HasKey`
 
-You **cannot create `.asset` files reliably by writing YAML by hand**. When a change requires new Atom assets, write the code, then list in your summary exactly which assets the user must create (type, name, folder) and where to wire them in the Inspector.
+You **cannot create `.asset` files reliably by writing YAML by hand**. When a change requires new Atom assets, create them yourself in the live Editor (through a setup script or `unity command script eval`, see §9 *Do Unity steps yourself*), never as hand-written YAML. Only if no Editor can be reached, list exactly which assets the user must create (type, name, folder) and where to wire them in the Inspector, and say why you couldn't.
 
 ---
 
@@ -286,7 +286,7 @@ This project has three:
 - Edit Mode tests can create atoms with `ScriptableObject.CreateInstance<IntVariable>()` and destroy them in `[TearDown]` with `Object.DestroyImmediate`.
 - Test components in isolation by injecting test atoms. Expose an `internal` or `#if UNITY_INCLUDE_TESTS` setter, or use `SerializedObject` to assign private serialized fields — don't make fields public for tests.
 - Test that listeners unregister: disable the component, raise the event, assert nothing happened.
-- **Running tests:** run only the fixtures for what you changed, by name filter, always with a timeout (e.g. `--timeout 600`). Never run the whole suite unless the user asks. If a run takes much longer than expected, stop and report it instead of waiting.
+- **Only test what you change:** run only the test fixtures that cover the code you changed in this task, by name filter (e.g. `unity test --filter <Fixture>`), always with a timeout (e.g. `--timeout 600`). Never run the existing suite or unrelated tests unless the user asks. Also check the change in the live Editor (§9). If a run takes much longer than expected, stop and report it instead of waiting.
 
 ```csharp
 using NUnit.Framework;
@@ -342,8 +342,8 @@ private void Awake()
 2. **Model first.** Before coding a feature, decide which state is a Variable, which signals are Events, and which components own writes. State this plan briefly in your response.
 3. **Prefer no-code wiring.** If an existing Listener + Action can do it, say so instead of writing a script.
 4. **Keep changes small.** One feature, a few small components. Don't refactor unrelated systems.
-5. **Don't touch** `.meta` files, `ProjectSettings/`, `Packages/manifest.json`, scenes, or prefabs unless explicitly asked. Never delete or rename existing Atom assets — other scenes and prefabs reference them by GUID.
+5. **Don't touch** `.meta` files, `ProjectSettings/`, `Packages/manifest.json`, scenes, or prefabs unless explicitly asked or the feature you are building needs them; then change scenes and prefabs through the live Editor, never by editing their YAML. Never delete or rename existing Atom assets — other scenes and prefabs reference them by GUID.
 6. **Add a scenario.** For every feature that needs game progress to reach, create a `Scenario` asset (via a setup script) in `Assets/_Project/Data/Scenarios/` that starts right where the feature can be tested, and name it in your summary.
 7. **Record rule changes.** Any change to AGENTS.md, `Docs/Design/Architecture.md` or the architecture/validation tests gets an entry in `Docs/Decisions.md` (what, why, instead of).
-8. **Summarize setup steps.** End every change with a short checklist: new assets to create, Inspector fields to wire, and any Generator types to generate.
+8. **Do Unity steps yourself, then summarize.** When a change needs work in the Unity Editor (running setup menus, creating Atom assets, generating atoms, wiring Inspector fields, entering Play mode), do it yourself in the live Editor with the Unity CLI (`unity-cli` skill): let Unity compile, run the menu items or C#, then check the console and the result. End every change with a short summary of what you did in the Editor and how you checked it. Hand the user a checklist only for steps you genuinely couldn't do, and say why.
 9. **If unsure about an Atoms API**, check the installed package source under `Packages/` or `Library/PackageCache/com.unity-atoms.*` rather than guessing; APIs differ between major versions.

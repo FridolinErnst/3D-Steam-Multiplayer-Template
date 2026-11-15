@@ -14,6 +14,16 @@ Template:
 
 ---
 
+## 2026-11-15 — Agents do Unity steps themselves and only test what they change
+**What:** AGENTS.md §5, §7 and §9: agents create Atom assets, run setup menus, wire Inspector fields and check Play mode
+themselves in the live Editor through the Unity CLI, and end with a summary of what they did, not a to-do list.
+Scenes and prefabs a feature needs may be changed, but only through the Editor. Tests: only the fixtures for the code
+changed in this task, never the existing suite unless asked.
+**Why:** Checklists left the Editor work to the user, although the Unity CLI lets the agent do it and check the result.
+Running the whole suite for every change is slow and tests code nobody touched.
+**Instead of:** Handing over setup checklists (now only for steps the agent genuinely can't do), or running every test
+after each change.
+
 ## 2026-11-15 — Agent skills and code graph for the Steam multiplayer template
 **What:** Project skills in `.claude/skills/`: grilling (`/grill-me`, `/grill-with-docs`, `domain-modeling`),
 `steam-publish`, `unity-build-pipeline`, `unity-animation`, `unity-input-system`, our own `blender-to-unity`,
