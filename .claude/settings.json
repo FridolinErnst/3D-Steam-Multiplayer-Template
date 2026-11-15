@@ -1,0 +1,52 @@
+{
+  "extraKnownMarketplaces": {
+    "unity-agent-plugin": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/Unity-Technologies/unity-agent-plugin.git"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "unity@unity-agent-plugin": true
+  },
+  "enabledMcpjsonServers": [
+    "blender"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "graphify hook-guard search",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "graphify hook-guard read",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "graphify hook-guard compact",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

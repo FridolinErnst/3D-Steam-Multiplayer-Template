@@ -1,0 +1,32 @@
+{
+    "name": "Game.Runtime",
+    "rootNamespace": "Game",
+    "references": [
+        "Game.Core",
+        "UnityAtoms.UnityAtomsCore.Runtime",
+        "UnityAtoms.UnityAtomsBaseAtoms.Runtime",
+        "UnityAtoms.UnityAtomsFSM.Runtime",
+        "UnityAtoms.UnityAtomsInputSystem.Runtime",
+        "UnityAtoms.UnityAtomsMobile.Runtime",
+        "UnityAtoms.UnityAtomsMonoHooks.Runtime",
+        "UnityAtoms.UnityAtomsSceneMgmt.Runtime",
+        "UnityAtoms.UnityAtomsTags.Runtime",
+        "UnityAtoms.UnityAtomsUI.Runtime",
+        "Unity.InputSystem",
+        "Unity.AI.Navigation",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.ProBuilder",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
