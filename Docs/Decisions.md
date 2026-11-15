@@ -18,7 +18,7 @@ Template:
 **What:** Project skills in `.claude/skills/`: grilling (`/grill-me`, `/grill-with-docs`, `domain-modeling`),
 `steam-publish`, `unity-build-pipeline`, `unity-animation`, `unity-input-system`, our own `blender-to-unity`,
 and graphify (code knowledge graph, hooks in `.claude/settings.json`). Sources and licenses are in `.claude/skill-licenses/`.
-Blender `.blend` sources live in `ArtSource/`, outside `Assets/`.
+Blender `.blend` sources live in `BlenderSource/`, outside `Assets/`.
 **Why:** Plan with `/grill-with-docs` before building. Agents get correct Steam upload, build, animation and input
 know-how without searching, and query the graph instead of grepping the whole project.
 **Instead of:** Large third-party skill packs (e.g. 94 Blender skills): they cost context in every session and

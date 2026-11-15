@@ -1,0 +1,37 @@
+# graphify: paths left out of the knowledge graph (gitignore syntax; .gitignore is honoured too)
+
+# Unity-generated folders
+Library/
+Temp/
+Logs/
+obj/
+UserSettings/
+UIElementsSchema/
+Assets/_Recovery/
+
+# Unity template / sample code, not part of the game
+Assets/TutorialInfo/
+
+# Third-party agent skills (instructions, not game code)
+.claude/skills/
+.claude/skill-licenses/
+
+# Unity metadata and serialized assets (no code)
+*.meta
+*.unity
+*.prefab
+*.asset
+*.mat
+*.controller
+*.anim
+
+# Binary art sources
+*.blend
+*.blend1
+*.fbx
+
+# graphify's own output
+graphify-out/
+
+# Crash dumps
+mono_crash*.json

@@ -14,7 +14,8 @@ Use the viewport screenshot tool after every big change.
 
 | What | Where |
 |------|-------|
-| `.blend` source files | `ArtSource/<AssetName>/<AssetName>.blend`, at the repo root, **outside `Assets/`** |
+| `.blend` source files | `BlenderSource/<AssetName>/<AssetName>.blend`, at the repo root, **outside `Assets/`** |
+| Rebuild scripts (procedural models) | `Tools/Blender/build_<asset>.py`, run headless: `blender --background --factory-startup --python Tools/Blender/build_<asset>.py` |
 | Exported models | `Assets/_Project/Art/Models/<AssetName>/<Prefix>_<AssetName>.fbx` |
 | Textures | `Assets/_Project/Art/Models/<AssetName>/Textures/` |
 | Materials | `Assets/_Project/Art/Materials/` (shared) or next to the model |

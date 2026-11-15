@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "3D-Template-Enhanced.slnx"
+    "dotnet.defaultSolution": "3D-Steam-Multiplayer-Template.slnx"
 }
